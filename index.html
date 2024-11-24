@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeShare - Decentralized Content Sharing</title>
+    <link rel="stylesheet" href="/styles (2).css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                DeShare
+            </div>
+            <nav class="nav-links" id="nav-links">
+                <a href="#" class="nav-link" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="profile">Profile</a>
+                <a href="#" id="authLink">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content" id="main-content">
+        <!-- Content will be dynamically inserted here -->
+    </main>
+
+    <!-- Templates -->
+    <template id="login-template">
+        <div class="auth-container">
+            <h2 class="auth-title">Login to DeShare</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-input" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="auth-switch">
+                Don't have an account? <a href="#" id="switchToRegister">Register</a>
+            </div>
+        </div>
+    </template>
+
+    <template id="register-template">
+        <div class="auth-container">
+            <h2 class="auth-title">Create Account</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerUsername">Username</label>
+                    <input type="text" id="registerUsername" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" class="form-input" required>
+                </div>
+                <button type="submit" class="btn">Register</button>
+            </form>
+            <div class="auth-switch">
+                Already have an account? <a href="#" id="switchToLogin">Login</a>
+            </div>
+        </div>
+    </template>
+
+    <template id="home-template">
+        <div class="create-post">
+            <h3 class="create-post-title">Create Post</h3>
+            <form id="createPostForm">
+                <div class="form-group">
+                    <textarea class="form-input" id="postContent" placeholder="What's on your mind?" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="file" id="mediaInput" accept="image/*,video/*" multiple class="form-input">
+                </div>
+                <div id="mediaPreview" class="media-preview"></div>
+                <button type="submit" class="btn">Share</button>
+            </form>
+        </div>
+        <div id="posts-feed"></div>
+    </template>
+
+    <template id="profile-template">
+        <div class="profile">
+            <div class="profile-header">
+                <img src="" alt="Profile" class="profile-avatar" id="profileAvatar">
+                <div class="profile-info">
+                    <h2 id="profileUsername"></h2>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <div class="stat-value" id="postsCount">0</div>
+                            <div class="stat-label">Posts</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="likesCount">0</div>
+                            <div class="stat-label">Likes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="userPosts"></div>
+    </template>
+
+    <script src="/app.js" type="module"></script>
+</body>
+</html>
